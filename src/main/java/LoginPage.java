@@ -1,13 +1,15 @@
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+import java.time.Duration;
 
 public class LoginPage {
     // кнопка "Войти в аккаунт"
     private final By loginButton = By.xpath(".//button[text() = 'Войти в аккаунт']");
     // кнопка "Личный Кабинет"
     private final By personalCabinetButton = By.xpath(".//p[text()='Личный Кабинет']");
-    // надпись "Вход"
-    private final By loginText = By.xpath(".//h2[text() = 'Вход']");
     // кнопка "Войти" в Личном кабинете
     private final By signInButtonOnLoginPage = By.xpath(".//button[text()='Войти']");
     // кнопка "Войти" в форме восстановления и регистрации пароля
@@ -16,8 +18,8 @@ public class LoginPage {
     private final By emailInput = By.xpath(".//fieldset[1]//input[@name='name']");
     // поле "Пароль" в Личном кабинете
     private final By passwordInput = By.xpath(".//fieldset[2]//input[@name='Пароль']");
-    // надпись "Вход" в Личном кабинете
-    private final By entranceText = By.xpath(".//h2[text()='Вход']");
+    // кнопка "Оформить заказ"
+    private final By orderButton = By.xpath(".//button[text()='Оформить заказ']");
 
     private final WebDriver driver;
     public LoginPage(WebDriver driver) {
@@ -58,5 +60,12 @@ public class LoginPage {
     public LoginPage clickSignInButtonOnLoginPage(){
         driver.findElement(signInButtonOnLoginPage).click();
         return this;
+    }
+
+    //Ожидаем появления кнопки "Оформить заказ"
+    public boolean waitOrderButton() {
+        new WebDriverWait(driver, Duration.ofSeconds(EnvConfig.DEFAULT_TIMEOUT))
+                .until(ExpectedConditions.visibilityOfElementLocated(orderButton));
+        return driver.findElement(orderButton).isDisplayed();
     }
 }

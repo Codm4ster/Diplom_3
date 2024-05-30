@@ -1,10 +1,12 @@
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+import java.time.Duration;
 
 public class RegistrationPage {
 
-    // надпись "Регистрация"
-    private final By registerText = By.xpath(".//h2[text() = 'Регистрация']");
     // поле "Имя" на странице регистрации
     private final By name = By.xpath(".//fieldset[1]//input[@name='name']");
     // поле "Email" на странице регистрации
@@ -15,6 +17,8 @@ public class RegistrationPage {
     private final By registerButton = By.xpath(".//button[text()='Зарегистрироваться']");
     // надпись "Некорректный пароль"
     private final By wrongPasswordText = By.xpath(".//p[text() = 'Некорректный пароль']");
+    // надпись "Вход" в Личном кабинете
+    private final By entranceText = By.xpath(".//h2[text()='Вход']");
 
     private final WebDriver driver;
     public RegistrationPage(WebDriver driver) {
@@ -49,5 +53,12 @@ public class RegistrationPage {
     public String getErrorMessage(){
 
         return driver.findElement(wrongPasswordText).getText();
+    }
+
+    //Ожидаем появления надписи "Вход"
+    public boolean registrationSuccessful() {
+        new WebDriverWait(driver, Duration.ofSeconds(EnvConfig.DEFAULT_TIMEOUT))
+                .until(ExpectedConditions.visibilityOfElementLocated(entranceText));
+        return driver.findElement(entranceText).isDisplayed();
     }
 }

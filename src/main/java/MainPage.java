@@ -7,8 +7,6 @@ import java.time.Duration;
 
 public class MainPage {
 
-    // надпись "Соберите бургер"
-    private final By homeText = By.xpath(".//h1[text()='Соберите бургер']");
     // кнопка "Булки"
     private final By bunsButton = By.xpath(".//span[text()='Булки']");
     // кнопка "Соусы"
