@@ -18,7 +18,6 @@ public class RegistrationPage {
 
     private final WebDriver driver;
     public RegistrationPage(WebDriver driver) {
-
         this.driver = driver;
     }
 
