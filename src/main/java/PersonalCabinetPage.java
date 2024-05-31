@@ -34,10 +34,10 @@ public class PersonalCabinetPage {
     }
 
     //Ожидаем появления надписи "Профиль"
-    public PersonalCabinetPage waitProfileText() {
+    public boolean waitProfileText() {
         new WebDriverWait(driver, Duration.ofSeconds(EnvConfig.DEFAULT_TIMEOUT))
                 .until(ExpectedConditions.visibilityOfElementLocated(profileText));
-        return this;
+        return driver.findElement(profileText).isDisplayed();
     }
 
     //Нажимаем на логотип "Stellar Burgers"
@@ -53,22 +53,24 @@ public class PersonalCabinetPage {
     }
 
     //Ожидаем появления кнопки "Оформить заказ"
-    public PersonalCabinetPage waitOrderButton() {
+    public boolean waitOrderButton() {
         new WebDriverWait(driver, Duration.ofSeconds(EnvConfig.DEFAULT_TIMEOUT))
                 .until(ExpectedConditions.visibilityOfElementLocated(orderButton));
-        return this;
+        return driver.findElement(orderButton).isDisplayed();
     }
 
     //Нажимаем на кнопку "Выйти" в Личном кабинете
     public PersonalCabinetPage clickLogoutButton(){
+        new WebDriverWait(driver, Duration.ofSeconds(EnvConfig.DEFAULT_TIMEOUT))
+                .until(ExpectedConditions.visibilityOfElementLocated(logoutButton));
         driver.findElement(logoutButton).click();
         return this;
     }
 
     //Ожидаем появления надписи "Вход"
-    public PersonalCabinetPage waitEntranceText() {
+    public boolean waitEntranceText() {
         new WebDriverWait(driver, Duration.ofSeconds(EnvConfig.DEFAULT_TIMEOUT))
                 .until(ExpectedConditions.visibilityOfElementLocated(entranceText));
-        return this;
+        return driver.findElement(entranceText).isDisplayed();
     }
 }
