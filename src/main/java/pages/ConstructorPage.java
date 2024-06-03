@@ -1,3 +1,7 @@
+package pages;
+
+import configure.EnvConfig;
+import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -27,46 +31,46 @@ public class ConstructorPage {
         this.driver = driver;
     }
 
-    //Нажимаем на кнопку "Булки"
+    @Step("Нажимаем на кнопку <Булки>")
     public ConstructorPage clickBunsButton(){
         driver.findElement(bunsButton).click();
         return this;
     }
 
-    //Нажимаем на кнопку "Соусы"
+    @Step("Нажимаем на кнопку <Соусы>")
     public ConstructorPage clickSauceButton(){
         driver.findElement(sauceButton).click();
         return this;
     }
 
-    //Нажимаем на кнопку "Начинки"
+    @Step("Нажимаем на кнопку <Начинки>")
     public ConstructorPage clickFillingButton(){
         driver.findElement(fillingButton).click();
         return this;
     }
 
-    //Ожидаем выбранный раздел "Булки"
+    @Step("Ожидаем выбранный раздел <Булки>")
     public ConstructorPage waitBunsSection() {
         new WebDriverWait(driver, Duration.ofSeconds(EnvConfig.DEFAULT_TIMEOUT))
                 .until(ExpectedConditions.attributeContains(bunsSection, "class", "current"));
         return this;
     }
 
-    //Ожидаем выбранный раздел "Соусы"
+    @Step("Ожидаем выбранный раздел <Соусы>")
     public ConstructorPage waitSauceSection() {
         new WebDriverWait(driver, Duration.ofSeconds(EnvConfig.DEFAULT_TIMEOUT))
                 .until(ExpectedConditions.attributeContains(sauceSection, "class", "current"));
         return this;
     }
 
-    //Ожидаем выбранный раздел "Начинки"
+    @Step("Ожидаем выбранный раздел <Начинки>")
     public ConstructorPage waitFillingSection() {
         new WebDriverWait(driver, Duration.ofSeconds(EnvConfig.DEFAULT_TIMEOUT))
                 .until(ExpectedConditions.attributeContains(fillingSection, "class", "current"));
         return this;
     }
 
-    //Получение названия текущего раздела
+    @Step("Получение названия текущего раздела")
     public String getCurrentSectionText() {
         return driver.findElement(currentSection).getText();
     }

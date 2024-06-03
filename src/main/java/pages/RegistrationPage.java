@@ -1,3 +1,7 @@
+package pages;
+
+import configure.EnvConfig;
+import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -25,37 +29,37 @@ public class RegistrationPage {
         this.driver = driver;
     }
 
-    //Заполняем поле "Имя"
+    @Step("Заполняем поле <Имя>")
     public RegistrationPage setName(String inputName) {
         driver.findElement(name).sendKeys(inputName);
         return this;
     }
 
-    //Заполняем поле "Email"
+    @Step("Заполняем поле <Email>")
     public RegistrationPage setEmail(String inputEmail) {
         driver.findElement(email).sendKeys(inputEmail);
         return this;
     }
 
-    //Заполняем поле "Пароль"
+    @Step("Заполняем поле <Пароль>")
     public RegistrationPage setPassword(String inputPassword) {
         driver.findElement(password).sendKeys(inputPassword);
         return this;
     }
 
-    //Нажимаем на кнопку "Зарегистрироваться"
+    @Step("Нажимаем на кнопку <Зарегистрироваться>")
     public RegistrationPage clickRegisterButton(){
         driver.findElement(registerButton).click();
         return this;
     }
 
-    //Получаем текст ошибки при некорректном пароле
+    @Step("Получаем текст ошибки при некорректном пароле")
     public String getErrorMessage(){
 
         return driver.findElement(wrongPasswordText).getText();
     }
 
-    //Ожидаем появления надписи "Вход"
+    @Step("Ожидаем появления надписи <Вход>")
     public boolean registrationSuccessful() {
         new WebDriverWait(driver, Duration.ofSeconds(EnvConfig.DEFAULT_TIMEOUT))
                 .until(ExpectedConditions.visibilityOfElementLocated(entranceText));

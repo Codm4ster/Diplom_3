@@ -1,3 +1,7 @@
+package pages;
+
+import configure.EnvConfig;
+import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -27,39 +31,39 @@ public class PersonalCabinetPage {
         this.driver = driver;
     }
 
-    //Нажимаем на кнопку "Личный Кабинет" на главной
+    @Step("Нажимаем на кнопку <Личный Кабинет> на главной")
     public PersonalCabinetPage clickPersonalCabinetButton(){
         driver.findElement(personalCabinetButton).click();
         return this;
     }
 
-    //Ожидаем появления надписи "Профиль"
+    @Step("Ожидаем появления надписи <Профиль>")
     public boolean waitProfileText() {
         new WebDriverWait(driver, Duration.ofSeconds(EnvConfig.DEFAULT_TIMEOUT))
                 .until(ExpectedConditions.visibilityOfElementLocated(profileText));
         return driver.findElement(profileText).isDisplayed();
     }
 
-    //Нажимаем на логотип "Stellar Burgers"
+    @Step("Нажимаем на логотип <Stellar Burgers>")
     public PersonalCabinetPage clickLogo(){
         driver.findElement(logo).click();
         return this;
     }
 
-    //Нажимаем на кнопку "Конструктор"
+    @Step("Нажимаем на кнопку <Конструктор>")
     public PersonalCabinetPage clickConstructorButton(){
         driver.findElement(constructorButton).click();
         return this;
     }
 
-    //Ожидаем появления кнопки "Оформить заказ"
+    @Step("Ожидаем появления кнопки <Оформить заказ>")
     public boolean waitOrderButton() {
         new WebDriverWait(driver, Duration.ofSeconds(EnvConfig.DEFAULT_TIMEOUT))
                 .until(ExpectedConditions.visibilityOfElementLocated(orderButton));
         return driver.findElement(orderButton).isDisplayed();
     }
 
-    //Нажимаем на кнопку "Выйти" в Личном кабинете
+    @Step("Нажимаем на кнопку <Выйти> в Личном кабинете")
     public PersonalCabinetPage clickLogoutButton(){
         new WebDriverWait(driver, Duration.ofSeconds(EnvConfig.DEFAULT_TIMEOUT))
                 .until(ExpectedConditions.visibilityOfElementLocated(logoutButton));
@@ -67,7 +71,7 @@ public class PersonalCabinetPage {
         return this;
     }
 
-    //Ожидаем появления надписи "Вход"
+    @Step("Ожидаем появления надписи <Вход>")
     public boolean waitEntranceText() {
         new WebDriverWait(driver, Duration.ofSeconds(EnvConfig.DEFAULT_TIMEOUT))
                 .until(ExpectedConditions.visibilityOfElementLocated(entranceText));
