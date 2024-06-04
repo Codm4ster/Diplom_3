@@ -29,25 +29,25 @@ public class RegistrationPage {
         this.driver = driver;
     }
 
-    @Step("Заполняем поле <Имя>")
+    @Step("Заполняем поле «Имя»")
     public RegistrationPage setName(String inputName) {
         driver.findElement(name).sendKeys(inputName);
         return this;
     }
 
-    @Step("Заполняем поле <Email>")
+    @Step("Заполняем поле «Email»")
     public RegistrationPage setEmail(String inputEmail) {
         driver.findElement(email).sendKeys(inputEmail);
         return this;
     }
 
-    @Step("Заполняем поле <Пароль>")
+    @Step("Заполняем поле «Пароль»")
     public RegistrationPage setPassword(String inputPassword) {
         driver.findElement(password).sendKeys(inputPassword);
         return this;
     }
 
-    @Step("Нажимаем на кнопку <Зарегистрироваться>")
+    @Step("Нажимаем на кнопку «Зарегистрироваться»")
     public RegistrationPage clickRegisterButton(){
         driver.findElement(registerButton).click();
         return this;
@@ -59,7 +59,7 @@ public class RegistrationPage {
         return driver.findElement(wrongPasswordText).getText();
     }
 
-    @Step("Ожидаем появления надписи <Вход>")
+    @Step("Ожидаем появления надписи «Вход»")
     public boolean registrationSuccessful() {
         new WebDriverWait(driver, Duration.ofSeconds(EnvConfig.DEFAULT_TIMEOUT))
                 .until(ExpectedConditions.visibilityOfElementLocated(entranceText));

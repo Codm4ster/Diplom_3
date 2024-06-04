@@ -30,43 +30,43 @@ public class LoginPage {
         this.driver = driver;
     }
 
-    @Step("Нажимаем на кнопку <Войти в аккаунт> на главной")
+    @Step("Нажимаем на кнопку «Войти в аккаунт» на главной")
     public LoginPage clickLoginButton(){
         driver.findElement(loginButton).click();
         return this;
     }
 
-    @Step("Нажимаем на кнопку <Личный Кабинет>")
+    @Step("Нажимаем на кнопку «Личный Кабинет»")
     public LoginPage clickPersonalCabinetButton(){
         driver.findElement(personalCabinetButton).click();
         return this;
     }
 
-    @Step("Нажимаем на кнопку <Войти> в форме регистрации/восстановления пароля")
+    @Step("Нажимаем на кнопку «Войти» в форме регистрации/восстановления пароля")
     public LoginPage clickSignInButton(){
         driver.findElement(signInButton).click();
         return this;
     }
 
-    @Step("Заполняем поле <Email>")
+    @Step("Заполняем поле «Email»")
     public LoginPage setEmail(String inputEmail) {
         driver.findElement(emailInput).sendKeys(inputEmail);
         return this;
     }
 
-    @Step("Заполняем поле <Пароль>")
+    @Step("Заполняем поле «Пароль»")
     public LoginPage setPassword(String inputPassword) {
         driver.findElement(passwordInput).sendKeys(inputPassword);
         return this;
     }
 
-    @Step("Нажимаем на кнопку <Войти>")
+    @Step("Нажимаем на кнопку «Войти»")
     public LoginPage clickSignInButtonOnLoginPage(){
         driver.findElement(signInButtonOnLoginPage).click();
         return this;
     }
 
-    @Step("Ожидаем появления кнопки <Оформить заказ>")
+    @Step("Ожидаем появления кнопки «Оформить заказ»")
     public boolean waitOrderButton() {
         new WebDriverWait(driver, Duration.ofSeconds(EnvConfig.DEFAULT_TIMEOUT))
                 .until(ExpectedConditions.visibilityOfElementLocated(orderButton));

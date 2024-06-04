@@ -31,39 +31,45 @@ public class ConstructorPage {
         this.driver = driver;
     }
 
-    @Step("Нажимаем на кнопку <Булки>")
+    @Step("Нажимаем на кнопку «Булки»")
     public ConstructorPage clickBunsButton(){
+        new WebDriverWait(driver, Duration.ofSeconds(EnvConfig.DEFAULT_TIMEOUT))
+                .until(ExpectedConditions.visibilityOf(driver.findElement(bunsButton)));
         driver.findElement(bunsButton).click();
         return this;
     }
 
-    @Step("Нажимаем на кнопку <Соусы>")
+    @Step("Нажимаем на кнопку «Соусы»")
     public ConstructorPage clickSauceButton(){
+        new WebDriverWait(driver, Duration.ofSeconds(EnvConfig.DEFAULT_TIMEOUT))
+                .until(ExpectedConditions.visibilityOf(driver.findElement(sauceButton)));
         driver.findElement(sauceButton).click();
         return this;
     }
 
-    @Step("Нажимаем на кнопку <Начинки>")
+    @Step("Нажимаем на кнопку «Начинки»")
     public ConstructorPage clickFillingButton(){
+        new WebDriverWait(driver, Duration.ofSeconds(EnvConfig.DEFAULT_TIMEOUT))
+                .until(ExpectedConditions.visibilityOf(driver.findElement(fillingButton)));
         driver.findElement(fillingButton).click();
         return this;
     }
 
-    @Step("Ожидаем выбранный раздел <Булки>")
+    @Step("Ожидаем выбранный раздел «Булки»")
     public ConstructorPage waitBunsSection() {
         new WebDriverWait(driver, Duration.ofSeconds(EnvConfig.DEFAULT_TIMEOUT))
                 .until(ExpectedConditions.attributeContains(bunsSection, "class", "current"));
         return this;
     }
 
-    @Step("Ожидаем выбранный раздел <Соусы>")
+    @Step("Ожидаем выбранный раздел «Соусы»")
     public ConstructorPage waitSauceSection() {
         new WebDriverWait(driver, Duration.ofSeconds(EnvConfig.DEFAULT_TIMEOUT))
                 .until(ExpectedConditions.attributeContains(sauceSection, "class", "current"));
         return this;
     }
 
-    @Step("Ожидаем выбранный раздел <Начинки>")
+    @Step("Ожидаем выбранный раздел «Начинки»")
     public ConstructorPage waitFillingSection() {
         new WebDriverWait(driver, Duration.ofSeconds(EnvConfig.DEFAULT_TIMEOUT))
                 .until(ExpectedConditions.attributeContains(fillingSection, "class", "current"));

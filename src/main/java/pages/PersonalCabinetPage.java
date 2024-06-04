@@ -31,39 +31,39 @@ public class PersonalCabinetPage {
         this.driver = driver;
     }
 
-    @Step("Нажимаем на кнопку <Личный Кабинет> на главной")
+    @Step("Нажимаем на кнопку «Личный Кабинет» на главной")
     public PersonalCabinetPage clickPersonalCabinetButton(){
         driver.findElement(personalCabinetButton).click();
         return this;
     }
 
-    @Step("Ожидаем появления надписи <Профиль>")
+    @Step("Ожидаем появления надписи «Профиль»")
     public boolean waitProfileText() {
         new WebDriverWait(driver, Duration.ofSeconds(EnvConfig.DEFAULT_TIMEOUT))
                 .until(ExpectedConditions.visibilityOfElementLocated(profileText));
         return driver.findElement(profileText).isDisplayed();
     }
 
-    @Step("Нажимаем на логотип <Stellar Burgers>")
+    @Step("Нажимаем на логотип «Stellar Burgers»")
     public PersonalCabinetPage clickLogo(){
         driver.findElement(logo).click();
         return this;
     }
 
-    @Step("Нажимаем на кнопку <Конструктор>")
+    @Step("Нажимаем на кнопку «Конструктор»")
     public PersonalCabinetPage clickConstructorButton(){
         driver.findElement(constructorButton).click();
         return this;
     }
 
-    @Step("Ожидаем появления кнопки <Оформить заказ>")
+    @Step("Ожидаем появления кнопки «Оформить заказ»")
     public boolean waitOrderButton() {
         new WebDriverWait(driver, Duration.ofSeconds(EnvConfig.DEFAULT_TIMEOUT))
                 .until(ExpectedConditions.visibilityOfElementLocated(orderButton));
         return driver.findElement(orderButton).isDisplayed();
     }
 
-    @Step("Нажимаем на кнопку <Выйти> в Личном кабинете")
+    @Step("Нажимаем на кнопку «Выйти» в Личном кабинете")
     public PersonalCabinetPage clickLogoutButton(){
         new WebDriverWait(driver, Duration.ofSeconds(EnvConfig.DEFAULT_TIMEOUT))
                 .until(ExpectedConditions.visibilityOfElementLocated(logoutButton));
@@ -71,7 +71,7 @@ public class PersonalCabinetPage {
         return this;
     }
 
-    @Step("Ожидаем появления надписи <Вход>")
+    @Step("Ожидаем появления надписи «Вход»")
     public boolean waitEntranceText() {
         new WebDriverWait(driver, Duration.ofSeconds(EnvConfig.DEFAULT_TIMEOUT))
                 .until(ExpectedConditions.visibilityOfElementLocated(entranceText));

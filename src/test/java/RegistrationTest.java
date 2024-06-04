@@ -58,8 +58,6 @@ public class RegistrationTest {
                 .getErrorMessage();
 
         assertEquals("Некорректный пароль", actualResponse);
-
-        accessToken = user.loginUser(new CreateUser(email, password)).extract().path("accessToken");
     }
 
     @After
